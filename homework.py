@@ -68,7 +68,6 @@ class SportsWalking(Training):
     """Тренировка: спортивная ходьба."""
     WALKING_CALORIE_1: float = 0.035
     WALKING_CALORIE_2: float = 0.029
-
     def __init__(self,
                  action: int,
                  duration: float,
