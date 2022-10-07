@@ -4,12 +4,12 @@ from typing import Dict, Type
 
 @dataclass
 class InfoMessage:
+    """Информационное сообщение о тренировке."""
     training_type: str
     duration: float
     distance: float
     speed: float
     calories: float
-    """Информационное сообщение о тренировке."""
     def get_message(self) -> str:
         return (f'Тип тренировки: {self.training_type}; '
                 f'Длительность: {self.duration:.3f} ч.; '
@@ -19,10 +19,10 @@ class InfoMessage:
 
 
 class Training:
+    """Базовый класс тренировки."""
     CONVERSION_H_TO_M: int = 60
     LEN_STEP: float = 0.65
     M_IN_KM: int = 1000
-    """Базовый класс тренировки."""
     def __init__(self,
                  action: int,
                  duration: float,
@@ -55,9 +55,9 @@ class Training:
 
 
 class Running(Training):
+    """Тренировка: бег."""
     RUNNING_CALORIE_1: float = 18
     RUNNING_CALORIE_2: float = 20
-    """Тренировка: бег."""
     def get_spent_calories(self) -> float:
         return ((self.RUNNING_CALORIE_1 * self.get_mean_speed()
                  - self.RUNNING_CALORIE_2) * self.weight / self.M_IN_KM
@@ -86,10 +86,10 @@ class SportsWalking(Training):
 
 
 class Swimming(Training):
+    """Тренировка: плавание."""
     LEN_STEP = 1.38
     SWIMMING_CALORIE_1: float = 1.1
     SWIMMING_CALORIE_2: float = 2
-    """Тренировка: плавание."""
     def __init__(self,
                  action: int,
                  duration: float,
