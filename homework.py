@@ -93,7 +93,7 @@ class Swimming(Training):
     LEN_STEP = 1.38
     SWIMMING_CALORIE_1: float = 1.1
     SWIMMING_CALORIE_2: float = 2
-    
+
     def __init__(self,
                  action: int,
                  duration: float,
